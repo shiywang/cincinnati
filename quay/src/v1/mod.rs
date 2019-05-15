@@ -1,5 +1,5 @@
 use failure::Fallible;
-use reqwest::{self, async};
+use reqwest::{self, r#async as asynchro};
 
 mod manifest;
 
@@ -14,7 +14,7 @@ pub struct Client {
     /// Base URL for API endpoint.
     api_base: reqwest::Url,
     /// Asynchronous reqwest client.
-    hclient: async::Client,
+    hclient: asynchro::Client,
     /// Authentication token.
     token: Option<String>,
 }
@@ -30,7 +30,7 @@ impl Client {
         &self,
         method: reqwest::Method,
         url_suffix: S,
-    ) -> Fallible<async::RequestBuilder> {
+    ) -> Fallible<asynchro::RequestBuilder> {
         let url = self.api_base.clone().join(url_suffix.as_ref())?;
         let builder = {
             let plain = self.hclient.request(method, url);
@@ -50,13 +50,13 @@ impl Client {
 #[derive(Clone, Debug)]
 pub struct ClientBuilder {
     api_base: Option<String>,
-    hclient: Option<async::Client>,
+    hclient: Option<asynchro::Client>,
     token: Option<String>,
 }
 
 impl ClientBuilder {
     /// Set (or reset) the HTTP client to use.
-    pub fn http_client(self, hclient: Option<async::Client>) -> Self {
+    pub fn http_client(self, hclient: Option<asynchro::Client>) -> Self {
         let mut builder = self;
         builder.hclient = hclient;
         builder
@@ -80,7 +80,7 @@ impl ClientBuilder {
     pub fn build(self) -> Fallible<Client> {
         let hclient = match self.hclient {
             Some(client) => client,
-            None => async::ClientBuilder::new().build()?,
+            None => asynchro::ClientBuilder::new().build()?,
         };
         let api_base = match self.api_base {
             Some(ref base) => reqwest::Url::parse(base)?,
