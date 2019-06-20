@@ -1,0 +1,1 @@
+initSidebarItems({"static":[["DEFAULT_API_BASE",""]],"struct":[["Client","Client to make outgoing API requests to a quay instance."],["ClientBuilder","Client to make outgoing API requests to a quay instance."],["Tag","Repository tag."]]});

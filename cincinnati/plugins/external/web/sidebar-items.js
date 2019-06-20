@@ -1,0 +1,1 @@
+initSidebarItems({"struct":[["_WebPluginClient","Struct for implementing the client side of a web plugin"]]});

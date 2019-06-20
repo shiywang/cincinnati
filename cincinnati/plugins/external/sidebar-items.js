@@ -1,0 +1,1 @@
+initSidebarItems({"mod":[["web","The web module can be used to talk to webservice which expose an endpoint according to the protobuf scheme"]]});
