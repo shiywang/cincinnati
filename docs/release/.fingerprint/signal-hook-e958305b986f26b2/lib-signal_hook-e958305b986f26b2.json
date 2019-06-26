@@ -1,0 +1,1 @@
+{"rustc":3433446036604226809,"features":"[]","target":1268336290976461596,"profile":3727994941147666989,"path":15349530140294154811,"deps":[["arc-swap v0.3.7","arc_swap",15519802273724829372],["libc v0.2.46","libc",10092475120003814023]],"local":[{"Precalculated":"0.1.7"}],"rustflags":[],"edition":"Edition2015"}

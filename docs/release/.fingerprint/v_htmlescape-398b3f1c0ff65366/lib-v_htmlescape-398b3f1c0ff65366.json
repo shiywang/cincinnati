@@ -1,0 +1,1 @@
+{"rustc":3433446036604226809,"features":"[]","target":8297102067496667492,"profile":3727994941147666989,"path":16781186839929141543,"deps":[["cfg-if v0.1.6","cfg_if",1601513341524225006],["v_escape v0.3.2","v_escape",5663899058978549563]],"local":[{"Precalculated":"0.3.2"}],"rustflags":[],"edition":"Edition2018"}
