@@ -181,6 +181,15 @@
 <span id="181">181</span>
 <span id="182">182</span>
 <span id="183">183</span>
+<span id="184">184</span>
+<span id="185">185</span>
+<span id="186">186</span>
+<span id="187">187</span>
+<span id="188">188</span>
+<span id="189">189</span>
+<span id="190">190</span>
+<span id="191">191</span>
+<span id="192">192</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="doccomment">//! Cincinnati graph service.</span>
 
@@ -310,6 +319,15 @@
         })
         .<span class="ident">then</span>(<span class="kw">move</span> <span class="op">|</span><span class="ident">r</span><span class="op">|</span> {
             <span class="ident">timer</span>.<span class="ident">observe_duration</span>();
+
+            <span class="kw">if</span> <span class="kw">let</span> <span class="prelude-val">Err</span>(<span class="ident">e</span>) <span class="op">=</span> <span class="kw-2">&amp;</span><span class="ident">r</span> {
+                <span class="macro">error</span><span class="macro">!</span>(
+                    <span class="string">&quot;Error serving request with parameters &#39;{:?}&#39;: {}&quot;</span>,
+                    <span class="ident">req</span>.<span class="ident">query</span>(),
+                    <span class="ident">e</span>
+                );
+            }
+
             <span class="ident">r</span>
         });
     <span class="ident">Box</span>::<span class="ident">new</span>(<span class="ident">serve</span>)
